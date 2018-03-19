@@ -1,0 +1,14 @@
+<h1>Ask the question</h1>
+<form method="POST" action="/question">
+    <input name="name" type="text" placeholder="YOUR NAME"><br><br>
+    <input name="title" type="text" placeholder="YOUR TITLE"><br><br>
+    <textarea name="message" id="message" cols="70" rows="7" placeholder="YOUR QUESTION"></textarea><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h1> Questions: </h1>
+<% questions.forEach((question) => { %>
+    <hr>
+    <h3><%= question.author %>&nbsp;&nbsp;<%= question.date %></h3>
+    <p><a href='/question/<%= question._id %>'><%= question.title %></a></p>
+<% }); %>
