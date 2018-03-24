@@ -31,6 +31,8 @@ app.use(express.static('css'))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => res.redirect('/question'));
+
 app.get('/question/:id', (req, res) => {
     Question.findOne({
         _id: req.params.id
