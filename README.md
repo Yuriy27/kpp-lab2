@@ -19,11 +19,11 @@
 - **MongoDB should listen on default port 27017**
 
 
-#### Page with all question
+### Page with all question
 ![alt text](https://github.com/Yuriy27/kpp-lab2/blob/master/images/questions.png)
 <br>
   
-#### Page with selected question and answers
+### Page with selected question and answers
 ![alt text](https://github.com/Yuriy27/kpp-lab2/blob/master/images/answers.png)
 <br>
 
