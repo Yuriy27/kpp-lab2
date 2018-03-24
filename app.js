@@ -27,6 +27,8 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
+app.use(express.static('css'))
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/question/:id', (req, res) => {
@@ -52,7 +54,7 @@ app.post('/question/:id', (req, res) => {
 });
 
 app.get('/question', (req, res) => {
-    Question.find()
+    Question.find().sort({ date: -1 })
         .then(quests => {
             console.log(quests);
             res.render('questions', { questions: quests });

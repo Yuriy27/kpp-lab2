@@ -1,14 +1,19 @@
-<h2><%= question.author %></h1>
-<h3><%= question.title %></h3>
+<% include header %>
+
+<h4 class="author-label"><%= question.author %></h1>
+<p><b><%= question.title %></b></p>
+<hr>
 <p><%= question.message %></p>
 <hr>
-<form method="POST" action="/question/<%= question._id %>">
-    <input name="name" type="text" placeholder="YOUR NAME"><br><br>
-    <textarea name="answer" id="answer" cols="70" rows="7" placeholder="YOUR QUESTION"></textarea><br><br>
-    <input type="submit" value="Submit">
+<form id="answer-form" method="POST" action="/question/<%= question._id %>">
+    <input required class="form-control form-group" name="name" type="text" placeholder="YOUR NAME">
+    <textarea required class="form-control form-group" name="answer" id="answer" cols="70" rows="7" placeholder="YOUR ANSWER"></textarea>
+    <input class="btn btn-info" type="submit" value="Submit">
 </form>
 <% question.answers.forEach(answer => { %>
     <hr>
-    <h3><%= answer.author %>&nbsp;&nbsp;<%= answer.date %></h3>
+    <h3><%= answer.author %></h3>
     <p><%= answer.message %></p>
 <% }); %>
+
+<% include footer %>

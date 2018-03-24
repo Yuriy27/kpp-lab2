@@ -1,14 +1,31 @@
-<h1>Ask the question</h1>
-<form method="POST" action="/question">
-    <input name="name" type="text" placeholder="YOUR NAME"><br><br>
-    <input name="title" type="text" placeholder="YOUR TITLE"><br><br>
-    <textarea name="message" id="message" cols="70" rows="7" placeholder="YOUR QUESTION"></textarea><br><br>
-    <input type="submit" value="Submit">
-</form>
+<% include header %>
 
-<h1> Questions: </h1>
-<% questions.forEach((question) => { %>
-    <hr>
-    <h3><%= question.author %>&nbsp;&nbsp;<%= question.date %></h3>
-    <p><a href='/question/<%= question._id %>'><%= question.title %></a></p>
-<% }); %>
+<div class="fixed-bar">
+    <div class="ask-form-div">
+        <h2>Ask the question</h2>
+        <hr></hr>
+        <form method="POST" action="/question">
+            <input required class="form-control form-group" name="name" type="text" placeholder="YOUR NAME">
+            <input required class="form-control form-group" name="title" type="text" placeholder="YOUR TITLE">
+            <textarea required class="form-control form-group" name="message" id="message" cols="70" rows="7" placeholder="YOUR QUESTION"></textarea>
+            <input class="btn btn-info" type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<div class="questions-div">
+    <h2> Questions: </h2>
+    <% questions.forEach((question) => { %>
+        <hr>
+        <div class="question-div">
+            <div class="question-title-div">
+                <p><a href='/question/<%= question._id %>'><%= question.title %></a></p>
+            </div>
+            <div class="author-div">
+                <p><span class="asked-by">asked by </span><%= question.author %></p>
+            </div>
+        </div>
+    <% }); %>    
+</div>
+
+<% include footer %>
